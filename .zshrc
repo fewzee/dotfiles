@@ -21,7 +21,7 @@ alias 'rm=rm -i'
 alias 'mv=mv -i'
 alias 'cp=cp -i'
 # alias 'octave=/opt/local/bin/octave'
-alias dict='~/Library/dict.sh'
+alias dict='~/dict.sh'
 
 # Typing errors...
 alias 'cd..=cd ..'
