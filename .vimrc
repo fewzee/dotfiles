@@ -50,8 +50,6 @@ imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
 nmap <c-s> :w<CR>
 imap <c-s> <Esc>:w<CR>a
 
-map <F6> :call ACTonSaving()<CR>
-
 set incsearch
 
 set ignorecase
@@ -61,10 +59,6 @@ set wildmenu
 set showmode
 
 set visualbell
-
-function ACTonSaving()
-    !~/.UPLOAD.sh "%:p"
-endfunction
 
 function! Smart_TabComplete()
   let line = getline('.')                         " current line
