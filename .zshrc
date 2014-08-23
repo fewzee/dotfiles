@@ -7,7 +7,10 @@ setopt correctall
 setopt autocd
 setopt auto_resume
 
-PROMPT="%n@%m: %~> "
+#PROMPT="%n@%m: %~> "
+autoload -U promptinit
+promptinit
+prompt adam2
 
 autoload -U zmv
 
@@ -20,8 +23,7 @@ setopt AUTO_CONTINUE
 alias 'rm=rm -i'
 alias 'mv=mv -i'
 alias 'cp=cp -i'
-# alias 'octave=/opt/local/bin/octave'
-alias dict='~/dict.sh'
+alias define='~/Dropbox/codeBank/bash/define.sh'
 
 # Typing errors...
 alias 'cd..=cd ..'
@@ -35,8 +37,8 @@ alias "vimlast=vim $(ls -lrt | tail -1 | awk '{print $9}')"
 alias "lf=ls -l | egrep -v '^d'"
 alias "ldir=ls -l | egrep '^d'"
 
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=/Users/pouria/anaconda/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # Tell the terminal about the working directory whenever it changes.
 if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]]; then
@@ -74,3 +76,6 @@ if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]]; then
     # Tell the terminal about the initial directory.
     update_terminal_cwd
 fi
+
+# temporary aliases
+alias -g tez=~/Dropbox/currentWork/thesis

@@ -4,10 +4,19 @@ syntax on
 
 set smartindent
 
-set shiftwidth=4
-set tabstop=4
-set expandtab
-set smarttab
+let _curfile = expand("%:t")
+if _curfile =~ "Makefile" || _curfile =~ "makefile" || _curfile =~ ".*\.mk"
+    set noexpandtab
+else
+    set expandtab
+    set tabstop=4
+    set shiftwidth=4
+endif
+
+set timeout ttimeoutlen=100 timeoutlen=5000
+
+filetype plugin indent on
+syntax enable
 
 au FileType tex set spell
 
@@ -24,8 +33,13 @@ set encoding=utf-8
 if has("gui_running") 
     colorscheme desert
 else
-    colorscheme darkblue
+    colorscheme desert
 endif
+
+highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
+match OverLength /\%>80v.\+/
+
+set tw=80
 
 set laststatus=2
 set statusline=
