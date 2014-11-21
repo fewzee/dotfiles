@@ -16,6 +16,7 @@ autoload -U zmv
 
 export REPORTTIME=30
 
+
 # Background process to go on after killing shell
 setopt AUTO_CONTINUE
 
@@ -31,6 +32,16 @@ alias 'cd..=cd ..'
 # SSH aliases
 
 #lastef= "$(ls -lrt | egrep -v '^d' | tail -1 | awk '{print $9}')"
+
+# virtual envs
+function activate() {
+    if [ $# -ne 1 ]
+    then
+        echo "activate takes exactly one argument"
+    else
+        source ~/virt_env/$1/bin/activate
+    fi
+}
 
 alias "vimlast=vim $(ls -lrt | tail -1 | awk '{print $9}')"
 
