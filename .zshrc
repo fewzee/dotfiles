@@ -1,35 +1,24 @@
-#Set the auto completion on
+# auto tab completion
 autoload -U compinit
 compinit
  
-#Lets set some options
-setopt correctall
-setopt autocd
-setopt auto_resume
-
-#PROMPT="%n@%m: %~> "
+# simple prompt
+# PROMPT="%n@%m:%~> "
 autoload -U promptinit
 promptinit
-prompt adam2
+prompt redhat
 
+# zmv provides regex options for mv
 autoload -U zmv
 
-export REPORTTIME=30
+# report process time if took longer than x seconds
+export REPORTTIME=10
 
-
-# Background process to go on after killing shell
+# background process to go on after killing shell
 setopt AUTO_CONTINUE
 
-# Play safe!
+# safe remove
 alias 'rm=rm -i'
-alias 'mv=mv -i'
-alias 'cp=cp -i'
-alias define='~/Dropbox/codeBank/bash/define.sh'
-
-# Typing errors...
-alias 'cd..=cd ..'
-
-# SSH aliases
 
 #lastef= "$(ls -lrt | egrep -v '^d' | tail -1 | awk '{print $9}')"
 
@@ -43,12 +32,19 @@ function activate() {
     fi
 }
 
+# dictionary
+alias define='~/Dropbox/codeBank/bash/define.sh'
+
+# vim the most recently modified/created file
 alias "vimlast=vim $(ls -lrt | tail -1 | awk '{print $9}')"
 
+# list only files
 alias "lf=ls -l | egrep -v '^d'"
+
+# list only directories
 alias "ldir=ls -l | egrep '^d'"
 
-export PATH=/Users/pouria/anaconda/bin:$PATH
+# homebrew
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 # Tell the terminal about the working directory whenever it changes.
@@ -87,6 +83,3 @@ if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]]; then
     # Tell the terminal about the initial directory.
     update_terminal_cwd
 fi
-
-# temporary aliases
-alias -g tez=~/Dropbox/currentWork/thesis
